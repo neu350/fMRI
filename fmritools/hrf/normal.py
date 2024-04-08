@@ -47,7 +47,7 @@ def double_gaussian_hrf(TR, t1=5, t2=15, d1=2, d2=4, ratio=6, onset=0, kernel=32
     hrf = norm.pdf(u, t1, d1) - norm.pdf(u, t2, d2) / ratio
 
     ## Downsample.
-    good_pts=np.array(range(np.int(kernel/TR)))*fMRI_T
+    good_pts=np.array(range(int(kernel/TR)))*fMRI_T
     hrf=hrf[good_pts.astype(int)]
 
     ## Normalize and return.
