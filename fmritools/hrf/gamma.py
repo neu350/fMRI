@@ -77,7 +77,7 @@ def spm_hrf(TR, t1=6, t2=16, d1=1, d2=1, ratio=6, onset=0, kernel=32):
     hrf = gamma(t1/d1,scale=1.0/(dt/d1)).pdf(u) - gamma(t2/d2,scale=1.0/(dt/d2)).pdf(u)/ratio
 
     ## Downsample.
-    good_pts=np.array(range(np.int(kernel/TR)))*fMRI_T
+    good_pts=np.array(range(int(kernel/TR)))*fMRI_T
     hrf=hrf[good_pts.astype(int)]
 
     ## Normalize and return.
