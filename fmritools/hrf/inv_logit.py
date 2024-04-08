@@ -58,7 +58,7 @@ def inv_logit_hrf(TR, t1=3, t2=8, t3=16, d1=0.5, d2=2, d3=2, ratio=6, onset=0, k
     hrf = inv_logit((u-t1)/d1) - a2 * inv_logit((u-t2)/d2) + a3 * inv_logit((u-t3)/d3)
 
     ## Downsample.
-    good_pts=np.array(range(np.int(kernel/TR)))*fMRI_T
+    good_pts=np.array(range(int(kernel/TR)))*fMRI_T
     hrf=hrf[good_pts.astype(int)]
 
     ## Normalize and return.
